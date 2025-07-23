@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spam OTP by Rapz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>Spammer Otp</h2>
+  <input id="phone" placeholder="Nomor Target (628xxx)">
+  <input id="amount" type="number" placeholder="Jumlah">
+  <br>
+  <button onclick="spam()">🚀 Mulai Spam</button>
+  <pre id="hasil"></pre>
+
+  <script>
+    async function spam() {
+      const phone = document.getElementById("phone").value;
+      const amount = document.getElementById("amount").value;
+      const res = await fetch(`http://139.59.22.22/api/spam?phone=${phone}&amount=${amount}`);
+      const data = await res.json();
+      document.getElementById("hasil").innerText = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
